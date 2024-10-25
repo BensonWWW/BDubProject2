@@ -15,19 +15,21 @@ public class LinearEquation {
 
 
     public double distance() {
-        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        return roundHundredth(Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)));
     }
 
     public double slope() {
-        slope = ((double) (y2 - y1) /(x2- x1));
+        slope = roundHundredth(((double) (y2 - y1) /(x2- x1)));
         return slope;
     }
 
 
     public double yIntercept() {
-        yIntercept = (y1 - slope() * x1);
+        yIntercept = roundHundredth((y1 - slope() * x1));
         return yIntercept;
     }
 
-
+    private double roundHundredth(double num){
+        return Math.round(num * 100.0) / 100.0;
+    }
 }
