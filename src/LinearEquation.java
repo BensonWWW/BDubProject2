@@ -32,4 +32,26 @@ public class LinearEquation {
     private double roundHundredth(double num){
         return Math.round(num * 100.0) / 100.0;
     }
+
+    public String equation() {
+        if ((y2 - y1) == 0) {
+            return "y = " + yIntercept;
+        } else {
+            return "y = " + (y2 - y1) + "/" + (x2 - x1)  + " + " + yIntercept;
+        }
+    }
+
+    public String coordinateForX(double x) {
+        double yValue = ((slope * x) + yIntercept);
+        return "(" + x + ", " + yValue + ")";
+    }
+
+    public String lineInfo() {
+        String firstStatement = "The two points are: " + "(" + x1 + ", " + y1 + ")" + " and " + "(" + x2 + ", " + y2 + ")";
+        String secondStatement = "The equation of the line between these points is: " + equation();
+        String thirdStatement = "The y-intercept of this line is: " + yIntercept;
+        String fourthStatement = "The slope of this line is: " + slope;
+        String fifthStatement = "The distance between these points is: " + distance();
+        return firstStatement + "\n" + secondStatement + "\n" + thirdStatement + "\n" + fourthStatement + "\n" + fifthStatement;
+    }
 }
